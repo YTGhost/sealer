@@ -14,9 +14,14 @@
 
 package manifest
 
-/* func TestListImages(t *testing.T) {
+import (
+	"reflect"
+	"testing"
+)
+
+func TestListImages(t *testing.T) {
 	type args struct {
-		clusterName string
+		manifestPath string
 	}
 	tests := []struct {
 		name    string
@@ -26,7 +31,7 @@ package manifest
 	}{
 		{
 			"test list manifests images",
-			args{"my_cluster"},
+			args{"./testmanifests/manifest.yaml"},
 			[]string{"k8s.gcr.io/etcd:3.4.13-0", "k8s.gcr.io/kube-apiserver:v1.19.7", "k8s.gcr.io/kube-controller-manager:v1.19.7", "k8s.gcr.io/kube-scheduler:v1.19.7"},
 			false,
 		},
@@ -34,17 +39,14 @@ package manifest
 	manifests, _ := NewManifests()
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := manifests.ListImages(tt.args.clusterName)
+			got, err := manifests.ListImages(tt.args.manifestPath)
 			if (err != nil) != tt.wantErr {
 				t.Errorf("ListImages() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
-			sort.Strings(got)
-			sort.Strings(tt.want)
 			if !reflect.DeepEqual(got, tt.want) {
 				t.Errorf("ListImages() got = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
-*/

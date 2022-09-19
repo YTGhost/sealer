@@ -14,19 +14,29 @@
 
 package filesystem
 
-/*var testCluster = &v2.Cluster{
+import (
+	"net"
+	"testing"
+
+	k8sV1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+
+	v1 "github.com/sealerio/sealer/types/api/v1"
+	v2 "github.com/sealerio/sealer/types/api/v2"
+)
+
+var testCluster = &v2.Cluster{
 	ObjectMeta: k8sV1.ObjectMeta{Name: "my-cluster"},
 	Spec: v2.ClusterSpec{
 		Image: "kubernetes:v1.19.9",
 		Hosts: []v2.Host{
 			{
-				IPS: []string{
-					"192.168.56.111",
+				IPS: []net.IP{
+					net.IP("192.168.56.111"),
 				},
 				Roles: []string{"master"},
 			}, {
-				IPS: []string{
-					"192.168.56.112",
+				IPS: []net.IP{
+					net.IP("192.168.56.112"),
 				},
 				Roles: []string{"node"},
 			},
@@ -99,4 +109,4 @@ func TestUnMount(t *testing.T) {
 			}
 		})
 	}
-}*/
+}

@@ -14,7 +14,12 @@
 
 package config
 
-/*func TestNewProcessorsAndRun(t *testing.T) {
+import (
+	v1 "github.com/sealerio/sealer/types/api/v1"
+	"testing"
+)
+
+func TestNewProcessorsAndRun(t *testing.T) {
 	config := &v1.Config{
 		Spec: v1.ConfigSpec{
 			Process: "value|toJson|toBase64|toSecret",
@@ -42,9 +47,9 @@ config:
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if err := NewProcessorsAndRun(tt.args.config); (err != nil) != tt.wantErr || tt.args.config.Spec.Data != "config: eyJwYXNzd2QiOiJ4eHgiLCJ1c3JuYW1lIjoicm9vdCJ9\n" {
+			if err := NewProcessorsAndRun(tt.args.config); (err != nil) != tt.wantErr || tt.args.config.Spec.Data != "config: eyJwYXNzd2QiOiJ4eHgiLCJ1c2VybmFtZSI6InJvb3QifQ==\n" {
 				t.Errorf("NewProcessorsAndRun() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})
 	}
-}*/
+}
